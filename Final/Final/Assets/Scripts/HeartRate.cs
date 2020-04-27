@@ -5,15 +5,13 @@ using UnityEngine;
 public class HeartRate : MonoBehaviour
 {
 
-    public float alphaLevel = 0.5f;
-
+    public float alphaLevel = 0.2f;
+  
     bool changeBool = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        float HR = 150;
 
         
     }
@@ -24,8 +22,8 @@ public class HeartRate : MonoBehaviour
 
         if (changeBool == true) {
             StartCoroutine(HeartRateChange());
-            float change = Random.Range(-0.01f, 0.01f);
-            Debug.Log(change);
+            float change = Random.Range(-0.0002f, 0.002f);
+            Debug.Log(alphaLevel);
             alphaLevel = alphaLevel + change;
 
             GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, alphaLevel);
