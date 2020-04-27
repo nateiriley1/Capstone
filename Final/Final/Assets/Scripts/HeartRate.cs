@@ -6,7 +6,10 @@ public class HeartRate : MonoBehaviour
 {
 
     public float alphaLevel = 0.2f;
-  
+    public float redLevel = 1f;
+    public float greenLevel = 1f;
+    public float blueLevel = 1f;
+
     bool changeBool = true;
 
     // Start is called before the first frame update
@@ -22,11 +25,19 @@ public class HeartRate : MonoBehaviour
 
         if (changeBool == true) {
             StartCoroutine(HeartRateChange());
-            float change = Random.Range(-0.0002f, 0.002f);
-            Debug.Log(alphaLevel);
-            alphaLevel = alphaLevel + change;
 
-            GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, alphaLevel);
+            float Achange = Random.Range(-0.0002f, 0.002f);
+            float Rchange = Random.Range(-0.01f, 0.01f);
+            float Gchange = Random.Range(-0.01f, 0.01f);
+            float Bchange = Random.Range(-0.01f, 0.01f);
+
+
+            alphaLevel = alphaLevel + Achange;
+            redLevel = redLevel + Rchange;
+            greenLevel = greenLevel + Gchange;
+            blueLevel = blueLevel + Bchange;
+
+            GetComponent<MeshRenderer>().material.color = new Color(redLevel, greenLevel, blueLevel, alphaLevel);
         }
     }
 
